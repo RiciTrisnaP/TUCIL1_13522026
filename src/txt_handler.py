@@ -23,5 +23,3 @@ def read_txt(path):
         sequences.set_element(i,seq)
     file.close
     return matrix,buffer,sequences
-
-# read_txt("src/test.txt")

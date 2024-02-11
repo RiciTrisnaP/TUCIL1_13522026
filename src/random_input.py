@@ -65,8 +65,3 @@ def rapidrandintskew(min,max,power,time): # Fungsi untuk mengenerasi bilangan ya
         sum += temp
     avr = round(sum / time)
     return avr
-
-matrix, buffer, sequences = random('src/random.txt')
-matrix.print()
-buffer.print()
-sequences.print()

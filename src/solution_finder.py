@@ -2,15 +2,7 @@ from class_definition import *
 from txt_handler import *
 import numpy as np
 
-matrix,buffer,sequences = read_txt("test.txt")
-matrix_cp = matrix.copy()
-current_optimum = np.full([buffer.size], '??')
-step_optimum = []
-list_step = np.full([buffer.size,2],-1)
-start_position = np.array([0,0])
-direction = "horizontal"
 max_weight = 0
-step = 0
 
 def solution_finder(matrix, buffer, sequences, direction, start_position, list_step, step):
     global current_optimum 
@@ -54,9 +46,12 @@ def solution_finder(matrix, buffer, sequences, direction, start_position, list_s
             step_optimum = list_step.tolist()
             current_optimum = np.copy(buffer.list)
 
-solution_finder(matrix,buffer,sequences,direction,start_position,list_step,step)
-print(max_weight)
-for x in current_optimum:
-    print(f"{x} ",end="")
-for x in step_optimum:
-    print(f"{x[0]} {x[1]}")
+
+def brute_forced(matrix,buffer,sequences,direction,start_position,list_step,step):
+    solution_finder(matrix,buffer,sequences,direction,start_position,list_step,step)
+    print(max_weight)
+    for x in current_optimum:
+        print(f"{x} ",end="")
+    print("")
+    for x in step_optimum:
+        print(f"{x[0]} {x[1]}")
