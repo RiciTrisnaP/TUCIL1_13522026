@@ -1,4 +1,5 @@
 from class_definition import *
+import numpy as np
 
 def read_txt(path):
     file = open(path,"r")
@@ -6,7 +7,7 @@ def read_txt(path):
     width, height = (int(x) for x in (file.readline().split(" ")))
     matrix = Matrix(height,width)
     for i in range(height):
-        temp = np.array(list(Token(x) for x in file.readline().rstrip('\n').split(" ") if x != ""))
+        temp = np.array(list(x for x in file.readline().rstrip('\n').split(" ") if x != ""))
         if len(temp) != width:
             print("Dimensi matrix input tidak sesuai dengan ukuran")
             exit()
@@ -15,7 +16,7 @@ def read_txt(path):
     sequence_amount = int(file.readline())
     sequences = Sequences(sequence_amount)
     for i in range(sequence_amount):
-        temp = np.array(list(Token(x) for x in file.readline().rstrip('\n').split(" ") if x != ""))
+        temp = np.array(list(x for x in file.readline().rstrip('\n').split(" ") if x != ""))
         weight = int(file.readline())
         seq = Sequence(len(temp),weight)
         seq.list = temp
@@ -23,4 +24,4 @@ def read_txt(path):
     file.close
     return matrix,buffer,sequences
 
-read_txt("src/test.txt")
+# read_txt("src/test.txt")

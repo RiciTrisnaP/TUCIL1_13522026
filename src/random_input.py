@@ -8,7 +8,7 @@ def random(path):
 
     # Token
     token_count = int(file.readline()) # 1. Jumlah token unik
-    tokens = np.array(list(Token(x) for x in file.readline().rstrip('\n').split(" ") if x != "")) # 2. Token unik ex: BD E9 1C 2D 33
+    tokens = np.array(list(x for x in file.readline().rstrip('\n').split(" ") if x != "")) # 2. Token unik ex: BD E9 1C 2D 33
     if len(tokens) != token_count:
         print("Jumlah token tidak sesuai dengan inputan !!")
         exit() # Keluar ketika input tidak sesuai

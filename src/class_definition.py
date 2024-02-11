@@ -1,18 +1,9 @@
 import numpy as np
-
-class Token:
-    def __init__(self,value):
-        self.value = value
-    def __repr__(self):
-        return self.value
-    def __str__(self):
-        return self.value
-
 class Matrix:
     def __init__(self,height,width):
         self.width = width
         self.height = height
-        self.matrix = np.full([height,width], Token('00'))
+        self.matrix = np.full([height,width], '??')
 
     def print(self):
         print(self.matrix)
@@ -22,11 +13,16 @@ class Matrix:
     
     def set_cell(self,row,column,value):
         self.matrix[row,column] = value
+    
+    def copy(self):
+        matrix_cp = Matrix(self.height, self.width)
+        matrix_cp.matrix = np.copy(self.matrix)
+        return matrix_cp
 
 class Buffer:
     def __init__(self,size):
         self.size = size
-        self.list = np.full([size], Token('00'))
+        self.list = np.full([size], '??')
 
     def print(self):
         print(self.list)
@@ -41,7 +37,7 @@ class Sequence:
     def __init__(self,size,weight):
         self.size = size
         self.weight = weight
-        self.list = np.full([size], Token('00'))
+        self.list = np.full([size], '??')
 
     def __repr__(self):
         return np.array2string(self.list)
@@ -62,7 +58,7 @@ class Sequence:
         length = self.size
         for i in range(length):
             temp = buffer.list[i:i+length]
-            if np.array_equal(self.list,temp):
+            if np.array_equal(self.list, temp):
                 return self.weight
         return 0
 
@@ -86,3 +82,4 @@ class Sequences:
         for sequence in self.list:
             sum += sequence.match(buffer)
         return sum
+
