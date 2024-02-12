@@ -54,10 +54,10 @@ class Sequence:
     def set_element(self,idx,value):
         self.list[idx] = value
 
-    def match(self,buffer):
+    def match(self,list):
         length = self.size
         for i in range(length):
-            temp = buffer.list[i:i+length]
+            temp = list[i:i+length]
             if np.array_equal(self.list, temp):
                 return self.weight
         return 0
@@ -77,9 +77,15 @@ class Sequences:
     def set_element(self,idx,value):
         self.list[idx] = value
 
-    def match_all(self,buffer):
+    def get_max_weight(self):
+        sum = 0
+        for x in self.list:
+            sum += x.weight
+        return sum
+
+    def match_all(self,list):
         sum = 0
         for sequence in self.list:
-            sum += sequence.match(buffer)
+            sum += sequence.match(list)
         return sum
 
