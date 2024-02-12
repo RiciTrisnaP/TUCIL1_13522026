@@ -1,6 +1,7 @@
 from class_definition import *
 from random import uniform, randint, randrange
 import numpy as np
+import sys
 
 def random():
 
@@ -9,7 +10,7 @@ def random():
     tokens = np.array(list(x for x in input().rstrip('\n').split(" ") if x != "")) # 2. Token unik ex: BD E9 1C 2D 33
     if len(tokens) != token_count:
         print("Jumlah token tidak sesuai dengan inputan !!")
-        exit() # Keluar ketika input tidak sesuai
+        sys.exit() # Keluar ketika input tidak sesuai
 
     # Buffer
     buffer_size = int(input()) # 3. Ukuran buffer

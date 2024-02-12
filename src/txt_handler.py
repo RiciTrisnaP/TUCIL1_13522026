@@ -1,6 +1,7 @@
 from class_definition import *
 import numpy as np
 import os
+import sys
 
 def read_txt(path):
     # Membuka file 
@@ -16,7 +17,7 @@ def read_txt(path):
         temp = np.array(list(x for x in file.readline().rstrip('\n').split(" ") if x != ""))
         if len(temp) != width:
             print("Dimensi matrix input tidak sesuai dengan ukuran")
-            exit()
+            sys.exit()
         else:
             matrix.matrix[i] = temp
 

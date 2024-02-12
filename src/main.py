@@ -1,11 +1,11 @@
 from os.path import isfile
 from random import choice
-
 from numpy import matrix
 from class_definition import *
 from solution_finder import *
 from random_input import *
 from txt_handler import *
+import sys
 import os
 import time
 
@@ -39,7 +39,7 @@ if __name__ == "__main__":
             write_txt(max_weight,current_optimum,list_step,duration)
         else:
             print("File tidak ditemukan")
-            exit()
+            sys.exit()
     else:
         matrix,buffer,sequences = random()
         print("\n== Matrix ==")

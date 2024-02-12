@@ -1,6 +1,7 @@
 from class_definition import *
 from txt_handler import *
 import numpy as np
+import sys
 
 # Inisiasi
 max_weight = 0
@@ -89,4 +90,4 @@ def brute_forced(matrix,buffer,sequences):
         return max_weight,current_optimum, step_optimum
     else:
         print("Tidak ada solusi")
-        exit()
+        sys.exit()
