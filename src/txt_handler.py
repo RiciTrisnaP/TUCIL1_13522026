@@ -42,10 +42,10 @@ def write_txt(max_weight, current_optimum, list_step,duration):
     # Input preferensi simpan atau tidak
     is_saved = input("Apakah ingin menyimpan solusi? (y/n): ")
     print("")
-    if is_saved == "y" or "Y":
+    if is_saved == "y" or is_saved == "Y":
         # Input nama file .txt
         file_name = input("Masukkan nama file: ")
-        path = os.path.join("../test", file_name + ".txt")
+        path = os.path.join("../../test", file_name + ".txt")
         # Open file
         with open(path,'w+') as file:
             file.write(f'{max_weight}\n')
@@ -53,6 +53,8 @@ def write_txt(max_weight, current_optimum, list_step,duration):
                 file.write(f'{x} ')
             file.write('\n')
             for x in list_step:
-                file.write(f"{x[0]} {x[1]}\n")
+                file.write(f"{x[0]},{x[1]}\n")
             file.write('\n')
             file.write(f'{duration}s')
+    else:
+        sys.exit()

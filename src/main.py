@@ -27,7 +27,7 @@ if __name__ == "__main__":
         else:
             stop = True
     if option == 1:
-        path = os.path.join(input("Masukkan path file txt: "))
+        path = os.path.join(input("Masukkan relative path file txt: "))
         if os.path.isfile(path):
             matrix,buffer,sequences = read_txt(path)
             start = time.process_time()
