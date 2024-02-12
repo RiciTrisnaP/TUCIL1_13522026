@@ -54,11 +54,3 @@ def randintskew(min,max,power): # Fungsi untuk mengenerasi bilangan yang condong
         seed = uniform(0,1)
         pos = pow(seed,power)
         return int(round((max - min) * pos + min))
-
-def rapidrandintskew(min,max,power,time): 
-    sum = 0
-    for i in range(time): # melakukan generasi bilangan bulat sebanyak variabel time
-        temp = randintskew(min,max,power)
-        sum += temp
-    avr = round(sum / time) # Mencari average pada beberapa hasil generasi bilangan bulat yang condong ke arah lower bound
-    return avr # Mengambil rata-rata sebagai hasil randomisasi
