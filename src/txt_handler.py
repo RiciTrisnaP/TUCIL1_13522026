@@ -1,5 +1,6 @@
 from class_definition import *
 import numpy as np
+import os
 
 def read_txt(path):
     # Membuka file 
@@ -34,3 +35,23 @@ def read_txt(path):
 
     # Mengembalikan hasil pembacaan matriks, buffer dan sekuens
     return matrix,buffer,sequences
+
+def write_txt(max_weight, current_optimum, list_step,duration):
+
+    # Input preferensi simpan atau tidak
+    is_saved = input("Apakah ingin menyimpan solusi? (y/n): ")
+    print("")
+    if is_saved == "y" or "Y":
+        # Input nama file .txt
+        file_name = input("Masukkan nama file: ")
+        path = os.path.join("../test", file_name + ".txt")
+        # Open file
+        with open(path,'w+') as file:
+            file.write(f'{max_weight}\n')
+            for x in current_optimum:
+                file.write(f'{x} ')
+            file.write('\n')
+            for x in list_step:
+                file.write(f"{x[0]} {x[1]}\n")
+            file.write('\n')
+            file.write(f'{duration}s')

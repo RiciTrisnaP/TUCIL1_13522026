@@ -86,5 +86,7 @@ def brute_forced(matrix,buffer,sequences):
         print("")
         for x in step_optimum:
             print(f"{x[0]} {x[1]}")
+        return max_weight,current_optimum, step_optimum
     else:
         print("Tidak ada solusi")
+        exit()

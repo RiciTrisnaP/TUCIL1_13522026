@@ -22,20 +22,24 @@ if __name__ == "__main__":
             option = int(input("Masukkan pilihan : "))
             if option != 1 and option != 2:
                 raise TypeError
-        except TypeError:
+        except (TypeError, ValueError):
             print("Masukkan bilangan bulat sesuai opsi")
         else:
             stop = True
     if option == 1:
-        path = input("Masukkan path file txt: ")
+        path = os.path.join(input("Masukkan path file txt: "))
         if os.path.isfile(path):
             matrix,buffer,sequences = read_txt(path)
             start = time.process_time()
             print("")
-            brute_forced(matrix,buffer,sequences)
-            print("\n" + str(time.process_time() - start) + "s")
+            max_weight, current_optimum, list_step = brute_forced(matrix,buffer,sequences)
+            duration = time.process_time() - start
+            print("\n" + str(duration) + "s")
+            print("")
+            write_txt(max_weight,current_optimum,list_step,duration)
         else:
             print("File tidak ditemukan")
+            exit()
     else:
         matrix,buffer,sequences = random()
         print("\n== Matrix ==")
@@ -44,6 +48,9 @@ if __name__ == "__main__":
         sequences.print()
         start = time.process_time()
         print("")
-        brute_forced(matrix,buffer,sequences)
-        print("\n" + str(time.process_time() - start) + "s")
+        max_weight, current_optimum, list_step = brute_forced(matrix,buffer,sequences)
+        duration = time.process_time() - start
+        print("\n" + str(duration) + "s")
+        print("")
+        write_txt(max_weight,current_optimum,list_step,duration)
     
