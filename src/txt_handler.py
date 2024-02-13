@@ -44,8 +44,12 @@ def write_txt(max_weight, current_optimum, list_step,duration):
     print("")
     if is_saved == "y" or is_saved == "Y":
         # Input nama file .txt
-        file_name = input("Masukkan nama file: ")
-        path = os.path.join("../../test", file_name + ".txt")
+        file_name = input("Masukkan nama file (pakai .txt): ")
+        cur_path = os.getcwd()
+        if 'dist' in cur_path:
+            path = os.path.join(os.path.pardir,os.path.pardir,os.path.pardir,'test',file_name)
+        else:
+            path = os.path.join(os.path.pardir,'test',file_name)
         # Open file
         with open(path,'w+') as file:
             file.write(f'{max_weight}\n')

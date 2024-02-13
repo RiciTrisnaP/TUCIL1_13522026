@@ -1,5 +1,3 @@
-from os.path import isfile
-from random import choice
 from numpy import matrix
 from class_definition import *
 from solution_finder import *
