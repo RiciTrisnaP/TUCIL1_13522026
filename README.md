@@ -2,7 +2,9 @@
 # Penyelesaian Cyberpunk 2077 Breach Protocol dengan Algoritma Brute Force
 
 Nama : Rici Trisna Putra
+
 NIM : 13522026
+
 Kelas : 02
 
 Pada tugas mata kuliah Strategi Algoritma kali ini kami diminta untuk mengimplementasikan program yang dapat menemukan solusi optimum untuk setiap kombinasi matriks, sekuens, dan ukuran buffer pada minigame *Cyberpunk 2077 Breach Protocol* menggunakan algoritma brute force.
